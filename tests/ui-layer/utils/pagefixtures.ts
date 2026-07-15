@@ -4,6 +4,7 @@ import { LoginPage } from "../Pages/loginpage"
 import { Dashboardpage} from "../Pages/dashboardpage"
 import { DeleteCustomerPage } from "../Pages/deletecustomerpage"
 import dotenv from 'dotenv'
+dotenv.config()
  type MyPageFixtures={
     loginpage:LoginPage,
     customerpage:CustomerPage,
