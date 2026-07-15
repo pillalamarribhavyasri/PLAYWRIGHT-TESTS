@@ -3,7 +3,8 @@ import {test } from '../utils/pagefixtures'
 test.describe('dashboard Tests',() =>{
 
      test.beforeEach(async({loginpage}) => {
-        await loginpage.doLogin("mngr663722","aruqYbA")
+        await loginpage
+        
     })
 
     test('@dashboard @regression Verify Dashboard Page Title', async({dashboardpage})=>{

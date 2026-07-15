@@ -4,7 +4,7 @@ import { expect } from "@playwright/test";
 test.describe("Customer Tests", () => {
 
     test.beforeEach(async ({ loginpage }) => {
-        await loginpage.doLogin("mngr663722", "aruqYbA");
+        await loginpage
     });
 
     test('@customer @customer_creation @regression verify new customer form submission', async ({ customerpage }) => {

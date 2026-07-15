@@ -2,7 +2,8 @@ import {test } from '../utils/pagefixtures'
 
 test.describe('Customer Tests',() =>{
     test.beforeEach(async({loginpage}) => {
-        await loginpage.doLogin("mngr663722","aruqYbA")
+        await loginpage
+        
     })
 
     test (' @customer @customer_deletion @regression Verify New Customer Form Submission and rechecking', async({customerpage,deletecustomerpage,page})=>{
