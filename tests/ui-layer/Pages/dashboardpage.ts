@@ -1,4 +1,5 @@
 import { expect, Locator, Page } from '@playwright/test';
+import { midDefaultTimeout } from '../utils/helpers';
 export class Dashboardpage {
     private readonly page: Page;
     readonly menuItems: Locator;
@@ -14,7 +15,7 @@ export class Dashboardpage {
     }
 
     async getwelcomeMessage() {
-        await expect(this.welcomeMessage).toBeVisible();
+        await expect(this.welcomeMessage).toBeVisible( { timeout:midDefaultTimeout });
     }
 
     async getMenuItemsCountShouldBeFiften() {

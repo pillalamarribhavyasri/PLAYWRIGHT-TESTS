@@ -17,6 +17,7 @@ import { DeleteCustomerPage } from "../Pages/deletecustomerpage"
 {
         loginpage:async({page},use)=>{
             const lp=new LoginPage(page)
+            lp.doLogin("mngr663722","aruqYbA")
             await use(lp)
         },
         customerpage:async({page},use)=>{

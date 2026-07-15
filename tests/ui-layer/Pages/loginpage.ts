@@ -11,7 +11,7 @@ export class LoginPage {
         this.loginButton = page.locator("input[type='submit']");
     }
      async doLogin(username: string, password: string) {
-        await this.page.goto("/");
+        await this.page.goto(' ');
         await this.usernameInput.fill(username);
         await this.passwordInput.fill(password);
         await this.loginButton.click();
