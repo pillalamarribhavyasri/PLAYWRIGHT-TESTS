@@ -3,6 +3,7 @@ import { CustomerPage } from "../Pages/customerpage"
 import { LoginPage } from "../Pages/loginpage"
 import { Dashboardpage} from "../Pages/dashboardpage"
 import { DeleteCustomerPage } from "../Pages/deletecustomerpage"
+import dotenv from 'dotenv'
  type MyPageFixtures={
     loginpage:LoginPage,
     customerpage:CustomerPage,
@@ -17,7 +18,7 @@ import { DeleteCustomerPage } from "../Pages/deletecustomerpage"
 {
         loginpage:async({page},use)=>{
             const lp=new LoginPage(page)
-            lp.doLogin("mngr663722","aruqYbA")
+            lp.doLogin(process.env.GURU99_USERNAME!,process.env.GURU99_PASSWORD!)
             await use(lp)
         },
         customerpage:async({page},use)=>{
