@@ -5,7 +5,7 @@ test.describe('Customer Tests',() =>{
         await loginpage.doLogin("mngr663722","aruqYbA")
     })
 
-    test (' Verify New Customer Form Submission and rechecking', async({customerpage,deletecustomerpage,page})=>{
+    test (' @customer @customer_deletion @regression Verify New Customer Form Submission and rechecking', async({customerpage,deletecustomerpage,page})=>{
         const date = new Date();
         await customerpage.navigateToNewCustomerPage();
         await customerpage.fillNewCustomerForm('jaanu','2005-10-01','123 Main St','New York','NY','123456','1234567890',`jaanu${date.getTime()}@example.com`,'password123');

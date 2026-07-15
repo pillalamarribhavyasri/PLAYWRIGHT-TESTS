@@ -37,23 +37,14 @@ readonly customerIdtable:Locator;
         this.pincodeErrorMsg = page.getByText("PIN Code must have 6 Digits", { exact: true });
         //customer registration success msg
         this.customerRegistrationSuccessMsg =page.getByText("Customer Registered Successfully!!!", { exact: true });
-this.customerIdtable=page.locator("table#customer")
+        this.customerIdtable=page.locator("table#customer")
     }
 
     async navigateToNewCustomerPage() {
      await this.page.locator("text=New Customer").click();
 
     }
-    async fillNewCustomerForm(
-        name: string,
-        dob: string,
-        address: string,
-        city: string,
-        state: string,
-        pin: string,
-        mobileNumber: string,
-        email: string,
-        password: string
+    async fillNewCustomerForm(name: string,dob: string,address: string,city: string,state: string,pin: string,mobileNumber: string,email: string,password: string
     ) {
         await this.nameInput.fill(name);
         await this.dobInput.fill(dob);
