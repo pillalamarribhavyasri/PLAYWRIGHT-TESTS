@@ -1,6 +1,6 @@
 import{test,expect, APIResponse}from '@playwright/test'
 import {generateToken}  from '../services/generateToken'
-import { updateBookingAPi } from '../services/bookingsApiService'
+import { createBookingApi,updateBookingAPi } from '../services/bookingsApiService'
 import payload from '../utility/payloads/createApiPayload.json'
 test.describe('update bookings api',()=>{
    let tokenResponse:APIResponse
@@ -12,11 +12,14 @@ test.describe('update bookings api',()=>{
        expect(await tokenResponse.status()).toBe(200)
        const tokenResponsebody = await tokenResponse.json()
        token=tokenResponsebody.token
+       
        updateBookingApiResponse = await updateBookingAPi(request,payload.createBookingPayload, token)
    })
 
     test('status is 200', async ({ request })=>{
         console.log(await updateBookingApiResponse.status())
+        console.log("Status:", updateBookingApiResponse.status());
+        expect(updateBookingApiResponse.status()).toBe(200);
         const responsebody = await updateBookingApiResponse.json()
         
         console.log(responsebody)

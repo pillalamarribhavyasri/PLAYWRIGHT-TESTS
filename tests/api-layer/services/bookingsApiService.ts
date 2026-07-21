@@ -1,5 +1,6 @@
 import { APIRequestContext } from "@playwright/test"
 import { apiBaseUrl } from "../utility/apiConfis"
+
 export async function getAllBooksApi(request: APIRequestContext) {
    const response = await request.get(`${apiBaseUrl}/booking`)
    return response
@@ -10,6 +11,7 @@ export async function getAllBooksApiById(request: APIRequestContext, id: any) {
    return response
 
 }
+
 export async function createBookingApi(request: APIRequestContext, payload: object) {
    const response = await request.post(`${apiBaseUrl}/booking`, {
       data: payload
@@ -18,7 +20,7 @@ export async function createBookingApi(request: APIRequestContext, payload: obje
 
 }
 export async function updateBookingAPi(request: APIRequestContext, payload: object, token: string) {
-   const response = await request.put(`${apiBaseUrl}/booking/3`, {
+   const response = await request.put(`${apiBaseUrl}/booking/6`, {
       headers: {
          "Content-Type": "application/json",
          "Accept": "application/json",
@@ -29,7 +31,7 @@ export async function updateBookingAPi(request: APIRequestContext, payload: obje
    return response
 
 }
-export async function deleteBookingApi(request: APIRequestContext,id: number,token: string) {
+export async function deleteBookingApi(request: APIRequestContext, id: number, token: string) {
    const response = await request.delete(`${apiBaseUrl}/booking/${id}`, {
       headers: {
          "Content-Type": "application/json",
