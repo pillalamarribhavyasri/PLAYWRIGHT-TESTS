@@ -16,6 +16,7 @@ test.describe('create booking api', () => {
         bookingId = responseBodyCreateBookingApi.bookingid;
         console.log(`Booking Id:${bookingId}`);
         console.log(responseBodyCreateBookingApi)
+        
 
     })
 
