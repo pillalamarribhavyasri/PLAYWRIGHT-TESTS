@@ -1,19 +1,13 @@
-import{test,expect, APIResponse}from '@playwright/test'
-import {generateToken}  from '../services/generateToken'
-import { createBookingApi,updateBookingAPi } from '../services/bookingsApiService'
+import{test,expect, APIResponse}from '../fixtures/generateApiTokenFixture'
+import { updateBookingAPi } from '../services/bookingsApiService'
 import payload from '../utility/payloads/createApiPayload.json'
 test.describe('update bookings api',()=>{
-   let tokenResponse:APIResponse
-   let token:string
-   let updateBookingApiResponse:any
+  
+   let updateBookingApiResponse:APIResponse
     
-   test.beforeEach(async({request})=>{
-       tokenResponse = await generateToken(request)
-       expect(await tokenResponse.status()).toBe(200)
-       const tokenResponsebody = await tokenResponse.json()
-       token=tokenResponsebody.token
-       
-       updateBookingApiResponse = await updateBookingAPi(request,payload.createBookingPayload, token)
+   test.beforeEach(async({request,authToken})=>{
+      
+       updateBookingApiResponse = await updateBookingAPi(request,payload.createBookingPayload,authToken)
    })
 
     test('status is 200', async ({ request })=>{
