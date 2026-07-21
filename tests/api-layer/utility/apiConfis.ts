@@ -1,2 +1,2 @@
-export const apiBaseUrl="https://restful-booker.herokuapp.com"
-export const tokenGenerationUrl="https://restful-booker.herokuapp.com/auth"
+export const apiBaseUrl = process.env.GURU99_API_URL
+export const tokenGenerationUrl = process.env.GURU99_API_TOKENGENARATIONURL
