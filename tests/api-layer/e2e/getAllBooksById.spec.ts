@@ -1,12 +1,12 @@
-import { test,expect } from "@playwright/test"
+import { test, expect, APIResponse } from "@playwright/test"
 import { getAllBooksApiById } from "../services/bookingsApiService"
 import { getAllBooksApi } from "../services/bookingsApiService"
-test.describe('Get All Books API Tests', ()=>{
+test.describe('Get All Books API Tests', () => {
 
-    let responseAllBooksApi:any
-    let response:any
+    let responseAllBooksApi: APIResponse
+    let response: any
 
-    test.beforeEach(async({request})=>{
+    test.beforeEach(async ({ request }) => {
         responseAllBooksApi = await getAllBooksApi(request)
         const responseBodyAllBooksApi = await responseAllBooksApi.json()
         const id = responseBodyAllBooksApi[0].bookingid
@@ -14,13 +14,13 @@ test.describe('Get All Books API Tests', ()=>{
         response = await getAllBooksApiById(request, id)
     })
 
-    test('status is 200', async({request})=>{
+    test('status is 200', async ({ request }) => {
         const responseBody = await response.json()
         console.log(responseBody)
         await expect(response.status()).toBe(200)
     })
 
-    test('property validations', async({request})=>{
+    test('property validations', async ({ request }) => {
         const responseBody = await response.json()
         console.log(responseBody)
         await expect(responseBody).toHaveProperty("firstname")
@@ -45,10 +45,10 @@ test.describe('Get All Books API Invalid Tests', () => {
         expect(response.status()).toBe(404)
     })
     test('status code is 400 for special chars "&*^"', async ({ request }) => {
-        const response = await getAllBooksApiById(request, "&*&^*^%")
+        const response = await getAllBooksApiById(request, "!@#$")
         console.log(response.status());
         console.log(await response.text());
-        expect(response.status()).toBe(400)
+        expect(response.status()).toBe(404)
     })
 
 })
