@@ -1,3 +1,3 @@
 export const maxDefaultTimeout = 30000;
-export const midDefaultTimeout = 20000;
-export const minDefaultTimeout = 10000;
+export const midDefaultTimeout = 50000;
+export const minDefaultTimeout = 50000;

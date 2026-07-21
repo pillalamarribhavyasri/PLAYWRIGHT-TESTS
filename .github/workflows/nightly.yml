@@ -4,9 +4,14 @@ on:
     - cron: '30 2 * * *' # This triggers at 02:30 UTC (18:00 IST)
 
 jobs:
-  regression:
+  regression-ui:
     uses: ./.github/workflows/playwright.yml
     with:
       environment: test
       tag: "@regression"
+    secrets: inherit
+  regression-api:
+    uses: ./.github/workflows/playwright_Api.yml
+    with:
+      environment: test
     secrets: inherit
